@@ -7,7 +7,6 @@
 
 # dependencies
 /node_modules
-/functions
 
 # IDEs and editors
 /.idea
@@ -17,6 +16,11 @@
 *.launch
 .settings/
 *.sublime-workspace
+
+#firebase
+.firebase/
+/functions
+%RESOURCE_DIR%/
 
 # IDE - VSCode
 .vscode/*

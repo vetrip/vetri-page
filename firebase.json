@@ -13,7 +13,7 @@
     ]
   },
   "hosting": {
-    "public": "public",
+    "public": "dist/vetri-page",
     "ignore": [
       "firebase.json",
       "**/.*",
