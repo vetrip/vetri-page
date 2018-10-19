@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <mat-toolbar-row fxLayout>
+  <mat-toolbar-row fxLayout class="nav-bar">
     <nav fxFlex fxLayoutAlign="center">
       <button fxFlex mat-raised-button color="primary" routerLink="/home">Home</button>
       <button fxFlex mat-raised-button color="primary" routerLink="/travel">Travel</button>
@@ -7,7 +7,7 @@
       <button fxFlex fxHide.lt-sm="true" mat-raised-button color="primary" routerLink="/about">About me</button>
     </nav>
   </mat-toolbar-row>
-  <mat-toolbar-row fxLayout fxHide fxShow.lt-sm="true">
+  <mat-toolbar-row fxLayout fxHide fxShow.lt-sm="true" class="nav-bar">
     <nav fxFlex fxLayout fxLayoutAlign="center">
       <button fxFlex mat-raised-button color="primary" routerLink="/photography">Photography</button>
       <button fxFlex mat-raised-button color="primary" routerLink="/about">About me</button>
