@@ -8,4 +8,4 @@ import { SharedRoutingModule } from './shared-routing.module';
   exports: [CommonModule],
   declarations: []
 })
-export class SharedModule {}
+export class SharedModule { }

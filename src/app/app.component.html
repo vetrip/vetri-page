@@ -1,7 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-<h2>Please watch out this space to know more about me and my interests </h2>
+<mat-toolbar>
+  <mat-toolbar-row fxLayout>
+    <nav fxFlex fxLayoutAlign="center">
+      <button fxFlex mat-raised-button color="primary" routerLink="/home">Home</button>
+      <button fxFlex mat-raised-button color="primary" routerLink="/travel">Travel</button>
+      <button fxFlex fxHide.lt-sm="true" mat-raised-button color="primary" routerLink="/photography">Photography</button>
+      <button fxFlex fxHide.lt-sm="true" mat-raised-button color="primary" routerLink="/about">About me</button>
+    </nav>
+  </mat-toolbar-row>
+  <mat-toolbar-row fxLayout fxHide fxShow.lt-sm="true">
+    <nav fxFlex fxLayout fxLayoutAlign="center">
+      <button fxFlex mat-raised-button color="primary" routerLink="/photography">Photography</button>
+      <button fxFlex mat-raised-button color="primary" routerLink="/about">About me</button>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
