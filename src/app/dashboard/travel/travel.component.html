@@ -1,4 +1,4 @@
-<div *ngFor="let photo of photos">
+<div *ngFor="let photo of photos| async">
   <mat-card class="dahboard-card">
     <mat-card-header>
       <div mat-card-avatar class="dahboard-header-image"></div>

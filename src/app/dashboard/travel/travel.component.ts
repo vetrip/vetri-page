@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Photo } from './model/photo';
 
@@ -9,17 +9,15 @@ import { Photo } from './model/photo';
   styleUrls: ['./travel.component.css']
 })
 export class TravelComponent implements OnInit {
-
-  photos: Array<Photo> = new Array<Photo>();
-  constructor(private db: AngularFirestore) { }
+  photosCollection: AngularFirestoreCollection<Photo>
+  photos: Observable<Photo[]>;
+  constructor(private db: AngularFirestore) {
+    this.photosCollection = db.collection<Photo>('photos');
+    this.photos = this.photosCollection.valueChanges();
+  }
 
   ngOnInit() {
-    this.db.collection('photos').valueChanges().subscribe(items => {
-      items.forEach((item: Photo) => {
-        this.photos.push(item);
-        console.log(item)
-      })
-    })
+
   }
 
 }
