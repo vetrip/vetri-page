@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { Photo } from './model/photo';
 
 @Component({
   selector: 'app-travel',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelComponent implements OnInit {
 
-  constructor() { }
+  photos: Array<Photo> = new Array<Photo>();
+  constructor(private db: AngularFirestore) { }
 
   ngOnInit() {
+    this.db.collection('photos').valueChanges().subscribe(items => {
+      items.forEach((item: Photo) => {
+        this.photos.push(item);
+        console.log(item)
+      })
+    })
   }
 
 }
