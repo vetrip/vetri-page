@@ -20,6 +20,7 @@ import { environment } from 'src/environments/environment';
     CoreModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase, 'vetri-project'),
+
     AngularFirestoreModule,
     BrowserAnimationsModule,
     DashboardModule,

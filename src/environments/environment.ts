@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: '',
+    apiKey: 'AIzaSyC81qGNFrGv-osglnsq6arJbJeYt00Wmp8',
     authDomain: '',
     databaseURL: '',
     projectId: 'vetri-page',

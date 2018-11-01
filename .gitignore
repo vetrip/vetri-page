@@ -20,6 +20,7 @@
 #firebase
 .firebase/
 /functions
+/functions/node_modules
 %RESOURCE_DIR%/
 
 # IDE - VSCode
@@ -42,3 +43,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+src/environments/environment.ts
+src/environments/environment.prod.ts
