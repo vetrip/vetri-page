@@ -6,7 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { TravelComponent } from './travel/travel.component';
 import { PhotograpyComponent } from './photograpy/photograpy.component';
 
-import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde'
+import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde';
+import { AboutComponent } from './about/about.component'
 @NgModule({
   imports: [
     SharedModule,
@@ -16,6 +17,6 @@ import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde'
     }),
     DashboardRoutingModule
   ],
-  declarations: [HomeComponent, TravelComponent, PhotograpyComponent]
+  declarations: [HomeComponent, TravelComponent, PhotograpyComponent, AboutComponent]
 })
 export class DashboardModule { }
