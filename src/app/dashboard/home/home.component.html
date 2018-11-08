@@ -1,4 +1,11 @@
-<simplemde [(ngModel)]="content" [codemirror]="{ lineNumbers: true }" #mde></simplemde>
-<div [innerHTML]="content" style="white-space: pre-wrap;">
-
-</div>
+<mat-card>
+  <div *ngIf="!authenticated; else: authenticatedUser">
+    <button mat-raised-button color="warn" (click)="signIn()">Sign In</button>
+    <div [innerHTML]="content" style="white-space: pre-wrap;"></div>
+  </div>
+  <ng-template #authenticatedUser>
+    Welcome {{ currentUser.displayName }},
+    <button mat-raised-button color="warn" (click)="signOut()">Sign Out</button>
+    <simplemde [(ngModel)]="content" [codemirror]="{ lineNumbers: true }" #mde></simplemde>
+  </ng-template>
+</mat-card>

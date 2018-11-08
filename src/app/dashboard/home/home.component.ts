@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase';
 
 @Component({
   selector: 'app-home',
@@ -6,15 +8,30 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/co
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
   public content: string;
-  @ViewChild("mde") mde: SimpleMDE;
+  @ViewChild('mde') mde: SimpleMDE;
+  public htmlContent: string;
 
-  constructor() {
+  public authenticated: boolean = false;
 
-  }
+  public currentUser: firebase.User;
+
+  constructor(private fireAuth: AngularFireAuth) {}
 
   ngOnInit() {
+    // this.fireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    // console.log(this.fireAuth.auth.currentUser);
+    this.fireAuth.authState.subscribe(user => {
+      this.currentUser = this.fireAuth.auth.currentUser;
+      // user is signed in
+      if (user) {
+        // console.log(this.fireAuth.auth.currentUser);
+        this.authenticated = true;
+      } else {
+        this.authenticated = false;
+      }
+    });
+
     this.content = `# This is my first blog
     * list1
     * list2
@@ -39,6 +56,23 @@ export class HomeComponent implements OnInit {
     /*this.mde.codemirror.on('change', () => {
       console.log(this.mde.value);
     })*/
+
+    /*this.mde.codemirror.('change', () => {
+      console.log('content changed');
+      // this.htmlContent = this.mde.options.previewRender(this.mde.value());
+    })*/
+
+    // this.mde.
   }
 
+  signIn() {
+    this.fireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  }
+
+  signOut() {
+    this.fireAuth.auth
+      .signOut()
+      .then(() => (this.authenticated = false))
+      .catch(() => console.error('error happened'));
+  }
 }

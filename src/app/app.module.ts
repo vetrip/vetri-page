@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { environment } from 'src/environments/environment';
 
 
@@ -20,7 +22,7 @@ import { environment } from 'src/environments/environment';
     CoreModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase, 'vetri-project'),
-
+    AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
     DashboardModule,
