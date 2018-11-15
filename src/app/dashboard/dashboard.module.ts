@@ -7,10 +7,14 @@ import { TravelComponent } from './travel/travel.component';
 import { PhotograpyComponent } from './photograpy/photograpy.component';
 
 import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde';
-import { AboutComponent } from './about/about.component'
+
+import { MarkdownModule } from 'ngx-markdown';
+import { AboutComponent } from './about/about.component';
 @NgModule({
   imports: [
     SharedModule,
+
+    MarkdownModule.forRoot(),
     SimplemdeModule.forRoot({
       provide: SIMPLEMDE_CONFIG,
       useValue: {}
@@ -19,4 +23,4 @@ import { AboutComponent } from './about/about.component'
   ],
   declarations: [HomeComponent, TravelComponent, PhotograpyComponent, AboutComponent]
 })
-export class DashboardModule { }
+export class DashboardModule {}

@@ -1,7 +1,8 @@
 <mat-card>
   <div *ngIf="!authenticated; else: authenticatedUser">
     <button mat-raised-button color="warn" (click)="signIn()">Sign In</button>
-    <div [innerHTML]="content" style="white-space: pre-wrap;"></div>
+    <!-- <div [innerHTML]="content" style="white-space: pre-wrap;"></div> -->
+    <markdown [data]="content"></markdown>
   </div>
   <ng-template #authenticatedUser>
     Welcome {{ currentUser.displayName }},

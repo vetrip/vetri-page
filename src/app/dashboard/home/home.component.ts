@@ -19,19 +19,6 @@ export class HomeComponent implements OnInit {
   constructor(private fireAuth: AngularFireAuth) {}
 
   ngOnInit() {
-    // this.fireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-    // console.log(this.fireAuth.auth.currentUser);
-    this.fireAuth.authState.subscribe(user => {
-      this.currentUser = this.fireAuth.auth.currentUser;
-      // user is signed in
-      if (user) {
-        // console.log(this.fireAuth.auth.currentUser);
-        this.authenticated = true;
-      } else {
-        this.authenticated = false;
-      }
-    });
-
     this.content = `# This is my first blog
     * list1
     * list2
@@ -52,15 +39,34 @@ export class HomeComponent implements OnInit {
    | zebra stripes | are neat      |    $1 |
 
            ![sample text](https://via.placeholder.com/250https://placeholder.com/)`;
+    // this.fireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    // console.log(this.fireAuth.auth.currentUser);
+    this.fireAuth.authState.subscribe(user => {
+      this.currentUser = this.fireAuth.auth.currentUser;
+      // user is signed in
+      if (user) {
+        // console.log(this.fireAuth.auth.currentUser);
+        this.authenticated = true;
+        // html = this.mde.codemirror.options.previewRender(this.content);
+        //console.log(html);
+      } else {
+        this.authenticated = false;
+        // this.mde.codemirror.options.readOnly = true;
+        // this.mde.codemirror.options.previewRender('This is *example* Markdown');
+        //const html = this.mde.codemirror.options.previewRender(this.content);
+        //console.log(html);
+      }
+    });
+
     // this.editor.nativeElement.
     /*this.mde.codemirror.on('change', () => {
       console.log(this.mde.value);
     })*/
 
-    /*this.mde.codemirror.('change', () => {
+    /*this.mde.codemirror.on('change', () => {
       console.log('content changed');
       // this.htmlContent = this.mde.options.previewRender(this.mde.value());
-    })*/
+    });*/
 
     // this.mde.
   }
