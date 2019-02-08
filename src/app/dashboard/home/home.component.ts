@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
     // this.editor.nativeElement.
     /*this.mde.codemirror.on('change', () => {
       console.log(this.mde.value);
-    })*/
+    });*/
 
     /*this.mde.codemirror.on('change', () => {
       console.log('content changed');
@@ -78,7 +78,10 @@ export class HomeComponent implements OnInit {
   signOut() {
     this.fireAuth.auth
       .signOut()
-      .then(() => (this.authenticated = false))
+      .then(() => {
+        this.authenticated = false;
+        this.currentUser = null;
+      })
       .catch(() => console.error('error happened'));
   }
 }
