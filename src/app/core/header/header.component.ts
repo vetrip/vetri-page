@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthcontextService } from '../services/authcontext.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  //currentUser: any;
+  authUserObs: Observable<firebase.User>;
+  constructor(private authctxService: AuthcontextService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authUserObs = this.authctxService.authObserver();
+  }
+
+  signIn() {
+    this.authctxService.signIn();
+  }
+
+  signOut() {
+    this.authctxService.signOut().then(() => {});
+  }
 }

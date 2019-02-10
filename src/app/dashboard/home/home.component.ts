@@ -12,11 +12,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('mde') mde: SimpleMDE;
   public htmlContent: string;
 
-  public authenticated: boolean = false;
-
-  public currentUser: firebase.User;
-
-  constructor(private fireAuth: AngularFireAuth) {}
+  constructor() {}
 
   ngOnInit() {
     this.content = `# This is my first blog
@@ -39,24 +35,6 @@ export class HomeComponent implements OnInit {
    | zebra stripes | are neat      |    $1 |
 
            ![sample text](https://via.placeholder.com/250https://placeholder.com/)`;
-    // this.fireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-    // console.log(this.fireAuth.auth.currentUser);
-    this.fireAuth.authState.subscribe(user => {
-      this.currentUser = this.fireAuth.auth.currentUser;
-      // user is signed in
-      if (user) {
-        // console.log(this.fireAuth.auth.currentUser);
-        this.authenticated = true;
-        // html = this.mde.codemirror.options.previewRender(this.content);
-        //console.log(html);
-      } else {
-        this.authenticated = false;
-        // this.mde.codemirror.options.readOnly = true;
-        // this.mde.codemirror.options.previewRender('This is *example* Markdown');
-        //const html = this.mde.codemirror.options.previewRender(this.content);
-        //console.log(html);
-      }
-    });
 
     // this.editor.nativeElement.
     /*this.mde.codemirror.on('change', () => {
@@ -69,19 +47,5 @@ export class HomeComponent implements OnInit {
     });*/
 
     // this.mde.
-  }
-
-  signIn() {
-    this.fireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-  }
-
-  signOut() {
-    this.fireAuth.auth
-      .signOut()
-      .then(() => {
-        this.authenticated = false;
-        this.currentUser = null;
-      })
-      .catch(() => console.error('error happened'));
   }
 }
