@@ -1,10 +1,10 @@
 <mat-card>
-  <!-- <div *ngIf="!authenticated; else: authenticatedUser">
-    <button mat-raised-button color="warn" (click)="signIn()">Sign In</button>
-    <!-- <div [innerHTML]="content" style="white-space: pre-wrap;"></div>
-    <markdown [data]="content"></markdown>
+  <div *ngFor="let blog of (blogs | async)">
+    <!--<div [innerHTML]="blog.content" style="white-space: pre-wrap;"></div>-->
+
+    <markdown [data]="blog.content"></markdown>
   </div>
-  <ng-template #authenticatedUser>
+  <!--<ng-template #authenticatedUser>
     Welcome {{ currentUser.displayName }},
     <button mat-raised-button color="warn" (click)="signOut()">Sign Out</button>
     <simplemde [(ngModel)]="content" [codemirror]="{ lineNumbers: true }" #mde></simplemde>
