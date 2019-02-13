@@ -1,4 +1,7 @@
 <div>
-  Admin Module
-  <router-outlet></router-outlet>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link routerLink="/add">Add New Blog</a>
+    <a mat-tab-link routerLink="/edit">Edit Blog</a>
+  </nav>
+  <router-outlet> </router-outlet>
 </div>

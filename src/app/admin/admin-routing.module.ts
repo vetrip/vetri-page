@@ -4,7 +4,14 @@ import { AdminComponent } from './admin.component';
 import { BlogComponent } from './blogs/blog/blog.component';
 
 const routes: Routes = [
-  { path: 'admin', component: AdminComponent, children: [{ path: '', component: BlogComponent }] }
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      { path: '', redirectTo: 'add', pathMatch: 'full' },
+      { path: 'add', component: BlogComponent }
+    ]
+  }
 ];
 
 @NgModule({

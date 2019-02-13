@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   exports: [
@@ -18,6 +19,7 @@ import { MatInputModule } from '@angular/material';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatTabsModule,
     FlexLayoutModule
   ]
 })
