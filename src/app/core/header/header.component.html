@@ -17,11 +17,12 @@
         </button>
         <mat-menu #matmenu="matMenu">
           <div *ngIf="(authUserObs | async) as currentUser; else signInUser">
-            Welcome {{ currentUser.displayName }},
-            <button mat-raised-button color="warn" (click)="signOut()">Sign Out</button>
+            <label mat-menu-item>Welcome {{ currentUser.displayName }},</label>
+            <a mat-menu-item routerLink="/admin">Admin</a>
+            <button mat-menu-item color="warn" (click)="signOut()">Sign Out</button>
           </div>
           <ng-template #signInUser>
-            <button mat-raised-button color="warn" (click)="signIn()">Sign In</button>
+            <button mat-menu-item color="warn" (click)="signIn()">Sign In</button>
           </ng-template>
         </mat-menu>
       </div>

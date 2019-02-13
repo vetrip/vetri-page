@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthcontextService } from '../services/authcontext.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 export class HeaderComponent implements OnInit {
   //currentUser: any;
   authUserObs: Observable<firebase.User>;
-  constructor(private authctxService: AuthcontextService) {}
+  constructor(private authctxService: AuthcontextService, private router: Router) {}
 
   ngOnInit() {
     this.authUserObs = this.authctxService.authObserver();
@@ -24,5 +25,9 @@ export class HeaderComponent implements OnInit {
     this.authctxService.signOut().then(() => {
       console.log('logged out');
     });
+  }
+
+  goToAdmin() {
+    this.router.navigate(['/admin']);
   }
 }

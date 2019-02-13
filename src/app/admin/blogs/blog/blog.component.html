@@ -1,0 +1,7 @@
+<mat-card>
+  <mat-form-field style="width: 100%;">
+    <input matInput [maxLength]="100" placeholder="Enter your title here" />
+  </mat-form-field>
+  <button mat-raised-button color="warn" (click)="addBlog()">Save</button>
+  <simplemde [(ngModel)]="content" [codemirror]="{ lineNumbers: true }" #mde></simplemde>
+</mat-card>
