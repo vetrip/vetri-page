@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BlogsService } from 'src/app/core/services/blogs.service';
 import { Blog } from './../../../core/model/blog.model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-blog',
@@ -9,7 +10,7 @@ import { Blog } from './../../../core/model/blog.model';
 })
 export class BlogComponent implements OnInit {
   content: string;
-
+  title: FormControl = new FormControl();
   constructor(private blogsService: BlogsService) {}
 
   ngOnInit() {}
@@ -17,7 +18,7 @@ export class BlogComponent implements OnInit {
   addBlog() {
     console.log(this.content);
     let blog: Blog = {
-      title: '',
+      title: this.title.value,
       content: this.content,
       likes: 0
     };

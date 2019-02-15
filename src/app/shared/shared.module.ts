@@ -5,10 +5,12 @@ import { MaterialModule } from './material.module';
 import { SharedRoutingModule } from './shared-routing.module';
 import { MarkdownModule } from 'ngx-markdown';
 import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     SharedRoutingModule,
     MaterialModule,
     MarkdownModule.forRoot(),
@@ -17,7 +19,7 @@ import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde';
       useValue: {}
     })
   ],
-  exports: [CommonModule, MaterialModule, MarkdownModule, SimplemdeModule],
+  exports: [CommonModule, ReactiveFormsModule, MaterialModule, MarkdownModule, SimplemdeModule],
   declarations: []
 })
 export class SharedModule {}
