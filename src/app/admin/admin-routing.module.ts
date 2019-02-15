@@ -4,11 +4,13 @@ import { AdminComponent } from './admin.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { BlogListComponent } from './blogs/blog-list/blog-list.component';
 import { BlogComponent } from './blogs/blog/blog.component';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'blogs', pathMatch: 'full' },
       {
