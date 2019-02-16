@@ -23,7 +23,8 @@ export class HeaderComponent implements OnInit {
 
   signOut() {
     this.authctxService.signOut().then(() => {
-      console.log('logged out');
+      console.log('logged out successfully');
+      this.router.navigate(['/home']);
     });
   }
 
