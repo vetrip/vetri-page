@@ -40,4 +40,8 @@ export class BlogListComponent implements OnInit {
   addBlog() {
     this.router.navigate(['/admin/blogs', 0]);
   }
+
+  editBlog(id) {
+    this.router.navigate(['/admin/blogs', id]);
+  }
 }

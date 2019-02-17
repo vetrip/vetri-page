@@ -1,16 +1,20 @@
 <div>
   <button mat-raised-button color="warn" (click)="addBlog()">Add new Blog</button>
-  <div *ngFor="let blog of (blogs | async)">
-    <!--<div [innerHTML]="blog.content" style="white-space: pre-wrap;"></div>-->
-    <mat-card class="blog-card">
-      <mat-card-header>
-        <div mat-card-avatar></div>
-        <mat-card-title>{{ blog.title }}</mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
+
+  <mat-accordion *ngFor="let blog of (blogs | async)">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ blog.title }}
+        </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
         <markdown [data]="blog.content"></markdown>
-      </mat-card-content>
-    </mat-card>
-  </div>
+      </div>
+      <mat-action-row>
+        <button mat-button (click)="editBlog(blog.id)">Edit</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

@@ -23,6 +23,11 @@ export class BlogsService {
     this.blogs.add(blog);
   }
 
+  getBlog(id) {
+    this.blogDoc = this.afs.doc<Blog>(`blogs/${id}`);
+    return this.blogDoc;
+  }
+
   updateBlog(id: string, blog: Blog) {
     this.blogDoc = this.afs.doc<Blog>(`blogs/${id}`);
     this.blogDoc.update(blog);
