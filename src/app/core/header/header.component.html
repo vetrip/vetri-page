@@ -1,18 +1,25 @@
 <header>
   <nav>
-    <div fxFlex fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center">
-      <div fxflex="60">
-        <img src="/assets/images/seagull.png" style="width: 50px; height: 50px;" />
-        <a mat-raised-button routerLink="/home">Home</a>
-        <a mat-raised-button routerLink="/travel">Travel</a>
-        <a mat-raised-button routerLink="/photography">
-          Photography
-        </a>
-        <a mat-raised-button routerLink="/about">
-          About me
-        </a>
+    <div fxLayout="row" fxLayoutAlign="start center" style="width: 100%;">
+      <div fxflex="1 1 80">
+        <div fxFlex fxLayout="row">
+          <img
+            fxflex
+            src="/assets/images/seagull.png"
+            style="width: 50px; height: 50px;padding-right: 10px"
+          />
+          <a fxflex mat-raised-button routerLink="/home">Home</a>
+          <a fxflex mat-raised-button routerLink="/travel">Travel</a>
+          <a fxflex mat-raised-button routerLink="/photography">
+            Photography
+          </a>
+          <a fxflex mat-raised-button routerLink="/about">
+            About me
+          </a>
+        </div>
       </div>
-      <div fxflex="40" fxFlexAlign="end">
+
+      <div fxflex="1 1 20" fxFlexAlign="end">
         <button mat-icon-button [matMenuTriggerFor]="matmenu">
           <mat-icon>account_circle</mat-icon>
         </button>

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from './material.module';
 import { SharedRoutingModule } from './shared-routing.module';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { SimplemdeModule, SIMPLEMDE_CONFIG } from 'ng2-simplemde';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -13,7 +13,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     SharedRoutingModule,
     MaterialModule,
-    MarkdownModule.forRoot(),
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          sanitize: true
+        }
+      }
+    }),
     SimplemdeModule.forRoot({
       provide: SIMPLEMDE_CONFIG,
       useValue: {}
