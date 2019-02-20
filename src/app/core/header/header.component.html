@@ -1,39 +1,33 @@
 <header>
   <nav>
-    <div fxLayout="row" fxLayoutAlign="start center" style="width: 100%;">
-      <div fxflex="1 1 80">
-        <div fxFlex fxLayout="row">
-          <img
-            fxflex
-            src="/assets/images/seagull.png"
-            style="width: 50px; height: 50px;padding-right: 10px"
-          />
-          <a fxflex mat-raised-button routerLink="/home">Home</a>
-          <a fxflex mat-raised-button routerLink="/travel">Travel</a>
-          <a fxflex mat-raised-button routerLink="/photography">
-            Photography
-          </a>
-          <a fxflex mat-raised-button routerLink="/about">
-            About me
-          </a>
-        </div>
-      </div>
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" style="width: 100%;">
+      <img src="/assets/images/seagull.png" style="width: 50px; height: 50px;padding-right: 10px" />
+      <a mat-raised-button routerLink="/home">Home</a>
+      <a mat-raised-button routerLink="/travel">Travel</a>
+      <a mat-raised-button routerLink="/photography">
+        Photography
+      </a>
+      <a mat-raised-button routerLink="/about">
+        About me
+      </a>
+      <div fxFlex="1 1 65%"></div>
 
-      <div fxflex="1 1 20" fxFlexAlign="end">
-        <button mat-icon-button [matMenuTriggerFor]="matmenu">
-          <mat-icon>account_circle</mat-icon>
-        </button>
-        <mat-menu #matmenu="matMenu">
-          <div *ngIf="(authUserObs | async) as currentUser; else signInUser">
-            <label mat-menu-item>Welcome {{ currentUser.displayName }},</label>
-            <a mat-menu-item routerLink="/admin">Admin</a>
-            <button mat-menu-item color="warn" (click)="signOut()">Sign Out</button>
-          </div>
-          <ng-template #signInUser>
-            <button mat-menu-item color="warn" (click)="signIn()">Sign In</button>
-          </ng-template>
-        </mat-menu>
-      </div>
+      <button mat-icon-button [matMenuTriggerFor]="matmenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #matmenu="matMenu">
+        <div *ngIf="(authUserObs | async) as currentUser; else signInUser">
+          <label mat-menu-item>Welcome {{ currentUser.displayName }},</label>
+          <a mat-menu-item routerLink="/admin">Admin</a>
+          <button mat-menu-item color="warn" (click)="signOut()">Sign Out</button>
+        </div>
+        <ng-template #signInUser>
+          <button mat-menu-item color="warn" (click)="signIn()">Sign In</button>
+        </ng-template>
+      </mat-menu>
     </div>
   </nav>
+  <section class="progress-bar">
+    <mat-progress-bar [color]="'primary'" [mode]="progressBarMode"> </mat-progress-bar>
+  </section>
 </header>

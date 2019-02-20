@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   exports: [
@@ -22,6 +23,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatFormFieldModule,
     MatTabsModule,
     MatExpansionModule,
+    MatProgressBarModule,
     FlexLayoutModule
   ]
 })
