@@ -1,7 +1,7 @@
 # Vetri's Page [https://vetri.page]
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0
-> Angular 7+ Material + Flex Layot + Firebase
+> Angular 10 + Material + Flex Layot + Firebase
 
 ## Development server
 
