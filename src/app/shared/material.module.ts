@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSidenavModule} from '@angular/material/sidenav'
 
 @NgModule({
   exports: [
@@ -24,6 +25,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatTabsModule,
     MatExpansionModule,
     MatProgressBarModule,
+    MatSidenavModule,
     FlexLayoutModule
   ]
 })

@@ -22,10 +22,10 @@ export class AuthcontextService {
   }
 
   signIn() {
-    this.fireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.fireAuth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
   signOut() {
-    return this.fireAuth.auth.signOut();
+    return this.fireAuth.signOut();
   }
 }
