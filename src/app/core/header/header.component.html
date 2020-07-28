@@ -6,16 +6,17 @@
       </button>
     </div>
 
+    <img
+      src="/assets/images/seagull.png"
+      style="width: 50px; height: 50px; vertical-align: middle;"
+    />
+    <span class="flex-spacer"></span>
+
     <div fxShow="true" fxHide.lt-md="true">
-      <img
-        src="/assets/images/seagull.png"
-        style="width: 50px; height: 50px; padding-right: 10px;"
-      />
       <a mat-button routerLink="/home">Home</a>
       <a mat-button routerLink="/travel">Travel</a>
       <a mat-button routerLink="/photography">Photography</a>
       <a mat-button routerLink="/about">About</a>
-
       <button mat-icon-button [matMenuTriggerFor]="matmenu">
         <mat-icon>account_circle</mat-icon>
       </button>
@@ -35,7 +36,7 @@
     </div>
   </mat-toolbar>
 
-  <mat-sidenav-container fxFlexFill >
+  <mat-sidenav-container fxFlexFill>
     <mat-sidenav
       color="primary"
       #sidenav
@@ -54,7 +55,7 @@
     <mat-sidenav-content fxFlexFill>
       <div style="height: 90vh;">
         <router-outlet></router-outlet>
-      </div>      
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
   <!--
